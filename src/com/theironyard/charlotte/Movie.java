@@ -100,16 +100,28 @@ public class Movie {
         String contents = s.next();
 
         JsonParser p = new JsonParser();
-        //return p.parse(contents, Movie.class);
-        System.out.println(p.parse(contents, Movie.class)); // ok, now i need to toString this
+        Movie m = p.parse(contents, Movie.class);
+        System.out.println(m); // now how do i override toString
 
 
     }
+
 
     @Override
     public String toString() {
-        return
-    }
-
-
+        return String.format("Name of movie: %s\n" +
+                "Actor/Actress in movie: %s\n" +
+                "Genre of movie: %s\n" +
+                "Year of movie: %d\n" +
+                "Liked the movie: %s\n", name, actor, genre, year, like);
 }
+
+
+//@Override
+//    public String toString() {
+//    return "Name of movie : " + name  +
+//            "Actor/Actress in movie : " + actor  +
+//            "Genre of movie : " + genre  +
+//            "Year of movie : " + year  +
+//            "Liked movie : " + like;
+//}

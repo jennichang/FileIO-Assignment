@@ -16,10 +16,12 @@ public class Main {
         while (true) {
 
         try {
-            Movie.loadData();
             System.out.println("Loaded saved data.");
+            System.out.println("The current saved data shows:\n");
+            Movie.loadData();
         } catch (Exception e) {
-            System.out.println("This is a friendly error " + e.getMessage());
+            System.out.println("This is a friendly error.  The error is " + e.getMessage()); // if parse or
+            // load doesn't work show error, and also exception message.
         }
 
         System.out.println("Do you want to update the information? [y/n]");
@@ -56,11 +58,11 @@ public class Main {
             Movie movie = Movie.createNew(name, actor, genre, year, like);
 
 
-            //save data to json
+            //save data to json - method is in Movie class...calling method from movie class here
             movie.saveData(); // the this in Movie save is referencing this object ("movie")
             System.out.println("Data has been saved.");
 
-            // ask the example if it wasn't static:
+            // below is what would be needed if saveData method was static
 //            Movie.saveData(movie);
 
         }
